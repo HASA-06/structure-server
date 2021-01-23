@@ -1,7 +1,7 @@
 {
-  "name": "mister-meat-admin-back",
+  "name": "structure-server",
   "version": "0.0.0",
-  "description": "(주)한박스마일 소고기 브랜드 고기아찌 관리자 웹 서비스 서버",
+  "description": "Class 기반의 Node 서버입니다.",
   "main": "build/app.js",
   "scripts": {
     "compile-ts": "tsc",
