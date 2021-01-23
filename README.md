@@ -113,7 +113,9 @@ yarn run production
 ## APIs
 ### /api/v1/users/sign-up
 ```
-method: POST
+Method: POST
+
+Request
 
 request.body = {
   email: string,
@@ -122,6 +124,9 @@ request.body = {
   name: string
 }
 
+Response
+
+// Success
 response.status = 200
 response.data = {
   message: 'Success'
@@ -130,13 +135,18 @@ response.data = {
 
 ### /api/v1/users/sign-in
 ```
-method: POST
+Method: POST
+
+Request
 
 request.body = {
   email: string,
   password: string
 }
 
+Response
+
+// Success
 response.status = 200
 response.data = {
   message: 'Success',
@@ -144,5 +154,24 @@ response.data = {
     accessToken: string,
     refreshToken: string
   }
+}
+```
+
+### /api/v1/users/sign-out
+```
+Method: POST
+
+Request
+
+request.body = {
+  accessToken: string
+}
+
+Response
+
+//Success
+response.status = 200
+response.data = {
+  message: 'Success'
 }
 ```
