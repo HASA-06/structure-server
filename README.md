@@ -111,9 +111,11 @@ yarn run production
 ```
 
 ## APIs
-## About user 유저
-#### /api/v1/user/sign-up 회원가입
+## About user
+#### /api/v1/user/sign-up
 ```
+회원가입
+
 Method: POST
 
 Request
@@ -134,8 +136,10 @@ response.data = {
 }
 ```
 
-#### /api/v1/user/sign-in 로그인
+#### /api/v1/user/sign-in
 ```
+로그인
+
 Method: POST
 
 Request
@@ -158,8 +162,10 @@ response.data = {
 }
 ```
 
-#### /api/v1/user/sign-out 로그아웃
+#### /api/v1/user/sign-out
 ```
+로그아웃
+
 Method: POST
 
 Request
@@ -177,15 +183,17 @@ response.data = {
 }
 ```
 
-### About board 게시물
+## About board
 ```
 // Need accessToken or 'Bearer ' + accessToken
 request.headers = {
   Authorization: string
 }
 ```
-#### /api/v1/board/create 게시물 생성
+#### /api/v1/board/create
 ```
+게시물 생성
+
 Method: POST
 
 Request
@@ -205,8 +213,10 @@ response.data = {
 }
 ```
 
-#### /api/v1/board/read/:boardId 게시물 읽기
+#### /api/v1/board/read/:boardId
 ```
+게시물 읽기
+
 Method: GET
 
 Request
@@ -227,8 +237,10 @@ response.data = {
 }
 ```
 
-#### /api/v1/board/update/:boardId 게시물 수정
+#### /api/v1/board/update/:boardId
 ```
+게시물 수정
+
 Method: PUT
 
 Request
@@ -250,8 +262,10 @@ resopnse.data = {
 }
 ```
 
-#### /api/v1/board/delete/:boardId 게시물 삭제
+#### /api/v1/board/delete/:boardId
 ```
+게시물 삭제
+
 Method: DELETE
 
 Request
@@ -268,8 +282,10 @@ response.data = {
 }
 ```
 
-#### /api/v1/board/list 글 목록
+#### /api/v1/board/list
 ```
+게시물 목록
+
 Method: GET
 
 Request
