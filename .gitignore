@@ -1,0 +1,10 @@
+# node_modules
+node_modules/*
+
+# .env files
+.env.local
+.env.development
+.env.production
+
+# output directory
+build/
