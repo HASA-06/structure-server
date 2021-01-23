@@ -223,7 +223,29 @@ class BoardCtrl {
   }
 
   public list = async (ctx: Context) => {
-    
+    const accessToken: string = ctx.headers.authorization;
+
+    try {
+      await tokenLib.decodeToken(accessToken);
+
+      const data = await databaseLib.model('board').findAll();
+
+      ctx.status = 200;
+      ctx.body = {
+        message: 'Success',
+        data: data
+      };
+
+      return;
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = {
+        message: 'Fail',
+        detail: error
+      };
+
+      return;
+    }
   }
 }
 
