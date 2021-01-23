@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["ES5", "ES6"],
+    "baseUrl": "./src",
+    "paths": {
+      "apis/*": ["apis/*"],
+      "libraries/*": ["libraries/*"],
+      "models/*": ["models/*"],
+      "utils/*": ["utils/*"]
+    },
+    "outDir": "./build",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "declaration": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

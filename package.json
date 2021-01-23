@@ -1,0 +1,65 @@
+{
+  "name": "mister-meat-admin-back",
+  "version": "0.0.0",
+  "description": "(주)한박스마일 소고기 브랜드 고기아찌 관리자 웹 서비스 서버",
+  "main": "build/app.js",
+  "scripts": {
+    "compile-ts": "tsc",
+    "clear": "rm -r build",
+    "local": "cross-env NODE_ENV=local nodemon --exec ts-node -r tsconfig-paths/register src/www.ts",
+    "development": "npm run compile-ts && cross-env NODE_ENV=development node build/www.js",
+    "production": "npm run compile-ts && cross-env NODE_ENV=production babel-node build/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HanPark-Smile/mister-meat-admin-back.git"
+  },
+  "keywords": [
+    "JS(ES6)",
+    "TS",
+    "Node.js",
+    "Koa.js",
+    "Sequelize",
+    "mybatis-mapper",
+    "Coupang",
+    "API",
+    "SENS",
+    "API"
+  ],
+  "author": "SANHA LEE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HanPark-Smile/mister-meat-admin-back/issues"
+  },
+  "homepage": "https://github.com/HanPark-Smile/mister-meat-admin-back#readme",
+  "dependencies": {
+    "@types/console-stamp": "^0.2.33",
+    "console-stamp": "^0.2.9",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-cors": "0.0.16",
+    "koa-logger": "^3.2.1",
+    "koa-range": "^0.3.0",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.4.0",
+    "tsconfig-paths": "^3.9.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.6",
+    "@types/koa-cors": "0.0.0",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-range": "^0.3.2",
+    "@types/koa-router": "^7.4.1",
+    "@types/koa-static": "^4.0.1",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
