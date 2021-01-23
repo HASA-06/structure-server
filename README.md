@@ -111,16 +111,38 @@ yarn run production
 ```
 
 ## APIs
-1. users
-#### /api/v1/users/sign-up
-method: POST<br/>
+### /api/v1/users/sign-up
+```
+method: POST
+
 request.body = {
-  email,
-  password,
-  passwordCheck,
-  name
-}<br/>
-response.status = 200<br/>
+  email: string,
+  password: string,
+  passwordCheck: string,
+  name: string
+}
+
+response.status = 200
 response.data = {
   message: 'Success'
-}<br/>
+}
+```
+
+### /api/v1/users/sign-in
+```
+method: POST
+
+request.body = {
+  email: string,
+  password: string
+}
+
+response.status = 200
+response.data = {
+  message: 'Success',
+  data: {
+    accessToken: string,
+    refreshToken: string
+  }
+}
+```
