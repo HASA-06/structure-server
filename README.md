@@ -206,7 +206,6 @@ request.body = {
 Response
 
 // Success
-
 response.status = 200
 response.data = {
   message: 'Success'
@@ -226,7 +225,6 @@ Request
 Response
 
 // Success
-
 response.status = 200
 response.data = {
   id: string,
@@ -255,7 +253,6 @@ request.body = {
 Response
 
 // Success
-
 response.status = 200
 resopnse.data = {
   message: 'Success'
@@ -275,7 +272,6 @@ Request
 Response
 
 // Success
-
 response.status = 200
 response.data = {
   message: 'Success'
@@ -293,7 +289,6 @@ Request
 Response
 
 // Success
-
 response.status = 200
 response.data = {
   message: 'Success',
