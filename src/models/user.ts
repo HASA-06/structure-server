@@ -14,49 +14,24 @@ class User {
           primaryKey: true,
           allowNull: false
         },
-        name: {
-          field: 'name',
-          type: DataTypes.STRING,
-          allowNull: false
-        },
         email: {
           field: 'email',
           type: DataTypes.STRING,
           allowNull: false
         },
-        safeNumber: {
-          field: 'safe_number',
-          type: DataTypes.STRING
-        },
-        phoneNumber: {
-          field: 'phone_number',
-          type: DataTypes.STRING
-        },
-        address1: {
-          field: 'address_1',
+        password: {
+          field: 'password',
           type: DataTypes.STRING,
-          allowNull: false,
+          allowNull: false
         },
-        address2: {
-          field: 'address_2',
-          type: DataTypes.STRING
-        },
-        postcode: {
-          field: 'postcode',
+        salt: {
+          field: 'salt',
           type: DataTypes.STRING,
-          allowNull: false,
+          allowNull: false
         },
-        purchaseCount: {
-          field: 'purchase_count',
-          type: DataTypes.INTEGER,
-        },
-        refundCount: {
-          field: 'refund_count',
-          type: DataTypes.INTEGER
-        },
-        userInfoId: {
-          field: 'user_info_id',
-          type: DataTypes.INTEGER.UNSIGNED,
+        name: {
+          field: 'name',
+          type: DataTypes.STRING,
           allowNull: false
         },
         registeredDate: {

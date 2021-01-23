@@ -1,47 +1,42 @@
 import { DataTypes, Model } from 'sequelize';
 
-class Admin {
+class Board {
   private model: Model;
 
   constructor(sequelize: any) {
     this.model = sequelize.define(
-      'admin',
+      'board',
       {
-        adminId: {
-          field: 'admin_id',
+        boardId: {
+          field: 'board_id',
           type: DataTypes.INTEGER.UNSIGNED,
           autoIncrement: true,
           primaryKey: true,
           allowNull: false
         },
-        name: {
-          field: 'name',
+        title: {
+          field: 'title',
           type: DataTypes.STRING,
           allowNull: false
         },
-        email: {
-          field: 'email',
+        content: {
+          field: 'content',
           type: DataTypes.STRING,
           allowNull: false
         },
-        password: {
-          field: 'password',
+        userId: {
+          field: 'user_id',
           type: DataTypes.STRING,
-          allowNull: false,
+          allowNull: false
         },
-        salt: {
-          field: 'salt',
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        registeredDate: {
+        createdDate: {
           field: 'registered_date',
           type: 'TIMESTAMP',
           defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         }
       },
       {
-        tableName: 'admin',
+        tableName: 'board',
         timestamps: false,
       }
     )
@@ -52,4 +47,4 @@ class Admin {
   }
 }
 
-export default Admin;
+export default Board;
