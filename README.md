@@ -1,4 +1,4 @@
-# structure server
+# STRUCTURE SERVER
 
 구조를 잡기 위한 테스트 서버
 
