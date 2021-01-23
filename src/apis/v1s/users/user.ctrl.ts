@@ -24,6 +24,14 @@ class UserCtrl {
       };
     }
   }
+
+  public signIn = async (ctx: Context) => {
+
+  }
+
+  public signOut = async (ctx: Context) => {
+    
+  }
 }
 
 export default new UserCtrl();

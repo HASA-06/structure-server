@@ -1,7 +1,7 @@
 import KoaRouter from 'koa-router';
 
 import User from './users';
-import OrderForm from './order-forms';
+import Board from './boards';
 
 class V1 {
   private router: KoaRouter;
@@ -13,8 +13,8 @@ class V1 {
   }
 
   private setSubURL(): void {
-    this.router.use('/order-form', OrderForm.routes());
     this.router.use('/user', User.routes());
+    this.router.use('/board', Board.routes());
   }
 
   public getRouter(): KoaRouter {
