@@ -10,8 +10,12 @@
 Node.js의 프레임워크 중 Koa.js를 사용했으며, Typescript를 적용해 Class기반으로 제작된 서버입니다.
 
 ## Versions
+version 0.0.3<br/>
+1. middleware 적용
+
 version 0.0.2<br/>
-1. Mybatis-mapper 적용(다중 조인 쿼리 처리용)
+1. JWT library 개발
+2. 기본 API 개발 (User, Board)
 
 version 0.0.1<br/>
 1. Sequelize 로 ORM(Object Relation Mapping) 적용
