@@ -1,8 +1,8 @@
 import KoaRouter from 'koa-router';
 
-import UserCtrl from './user.ctrl';
+import TokenCtrl from './token.ctrl';
 
-class User {
+class Token {
   private router: KoaRouter;
 
   constructor() {
@@ -12,9 +12,7 @@ class User {
   }
 
   private setAPI(): void {
-    this.router.post('/sign-up', UserCtrl.signUp);
-    this.router.post('/sign-in', UserCtrl.signIn);
-    this.router.post('/sign-out', UserCtrl.signOut);
+    this.router.post('/refresh', TokenCtrl.refresh);
   }
 
   public getRouter(): KoaRouter {
@@ -22,4 +20,4 @@ class User {
   }
 }
 
-export default new User().getRouter();
+export default new Token().getRouter();

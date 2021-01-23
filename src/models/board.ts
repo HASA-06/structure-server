@@ -30,7 +30,7 @@ class Board {
           allowNull: false
         },
         createdDate: {
-          field: 'registered_date',
+          field: 'created_date',
           type: 'TIMESTAMP',
           defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         }

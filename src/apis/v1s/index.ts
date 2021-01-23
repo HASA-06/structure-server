@@ -1,7 +1,15 @@
 import KoaRouter from 'koa-router';
 
+import { Middleware } from 'koa';
+
 import User from './users';
 import Board from './boards';
+import Token from './tokens';
+
+import Authentication from 'middlewares/authentication';
+
+const authentication = new Authentication();
+
 
 class V1 {
   private router: KoaRouter;
@@ -14,7 +22,8 @@ class V1 {
 
   private setSubURL(): void {
     this.router.use('/user', User.routes());
-    this.router.use('/board', Board.routes());
+    this.router.use('/board', authentication.check, Board.routes());
+    this.router.use('/token', Token.routes());
   }
 
   public getRouter(): KoaRouter {

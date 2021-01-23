@@ -5,7 +5,7 @@ ConsoleStamp(console, {
 });
 
 import App from './app';
-import database from 'libraries/database';
+import database from 'libs/database';
 import ObjectRelationMapping from 'models/index';
 
 try {
@@ -14,7 +14,7 @@ try {
 
     const orm = new ObjectRelationMapping(database);
 
-    console.log('::: MISTER MEAT DATABASE :::\n');
+    console.log('::: STRUCTURE SERVER DATABASE :::\n');
     console.log('- Model list\n')
     await orm.setSubModels();
     console.log('=> Models are injected\n');
@@ -26,7 +26,7 @@ try {
     app.startServer();
   })();
 } catch (error) {
-  console.log(`::: MISTER MEAT SERVER :::\n`);
+  console.log(`::: STRUCTURE SERVER :::\n`);
   console.log('Server run has failed\n');
   console.log(`=>Error :: ${ error }`)
 }

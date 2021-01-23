@@ -65,7 +65,7 @@ class App {
 
   public startServer(): void {
     this.app.listen(3000, () => {
-      console.log(`::: MISTER MEAT SERVER:::\n`);
+      console.log(`::: STRUCTURE SERVER:::\n`);
       console.log('- Server is running\n');
       console.log(`Host ${ this.HOST_ADDRESS }`);
       console.log(`Port ${ this.PORT_NUMBER }`);

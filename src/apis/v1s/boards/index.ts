@@ -13,9 +13,9 @@ class Board {
 
   private setAPI(): void {
     this.router.post('/create', BoardCtrl.create);
-    this.router.get('/read', BoardCtrl.read);
-    this.router.post('/update', BoardCtrl.update);
-    this.router.post('/delete', BoardCtrl.delete);
+    this.router.get('/read/:boardId', BoardCtrl.read);
+    this.router.put('/update/:boardId', BoardCtrl.update);
+    this.router.delete('/delete/:boardId', BoardCtrl.delete);
     this.router.get('/list', BoardCtrl.list);
   }
 
