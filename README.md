@@ -111,7 +111,8 @@ yarn run production
 ```
 
 ## APIs
-### /api/v1/users/sign-up
+## About user 유저
+#### /api/v1/user/sign-up 회원가입
 ```
 Method: POST
 
@@ -133,7 +134,7 @@ response.data = {
 }
 ```
 
-### /api/v1/users/sign-in
+#### /api/v1/user/sign-in 로그인
 ```
 Method: POST
 
@@ -157,7 +158,7 @@ response.data = {
 }
 ```
 
-### /api/v1/users/sign-out
+#### /api/v1/user/sign-out 로그아웃
 ```
 Method: POST
 
@@ -169,9 +170,127 @@ request.body = {
 
 Response
 
-//Success
+// Success
 response.status = 200
 response.data = {
   message: 'Success'
 }
+```
+
+### About board 게시물
+```
+// Need accessToken or 'Bearer ' + accessToken
+request.headers = {
+  Authorization: string
+}
+```
+#### /api/v1/board/create 게시물 생성
+```
+Method: POST
+
+Request
+
+request.body = {
+  title: string,
+  content: string,
+}
+
+Response
+
+// Success
+
+response.status = 200
+response.data = {
+  message: 'Success'
+}
+```
+
+#### /api/v1/board/read/:boardId 게시물 읽기
+```
+Method: GET
+
+Request
+
+// Attention to url, need 'boardId' as params
+
+Response
+
+// Success
+
+response.status = 200
+response.data = {
+  id: string,
+  title: string,
+  content: string,
+  userId: number,
+  createdDate: timestamps
+}
+```
+
+#### /api/v1/board/update/:boardId 게시물 수정
+```
+Method: PUT
+
+Request
+
+// Attention to url, need 'boardId' as params
+
+request.body = {
+  title: string,
+  content: stiring
+}
+
+Response
+
+// Success
+
+response.status = 200
+resopnse.data = {
+  message: 'Success'
+}
+```
+
+#### /api/v1/board/delete/:boardId 게시물 삭제
+```
+Method: DELETE
+
+Request
+
+// Attention to url, need 'boardId' as params
+
+Response
+
+// Success
+
+response.status = 200
+response.data = {
+  message: 'Success'
+}
+```
+
+#### /api/v1/board/list 글 목록
+```
+Method: GET
+
+Request
+
+Response
+
+// Success
+
+response.status = 200
+response.data = {
+  message: 'Success',
+  data: Array<Board>
+}
+
+/*
+  interface Board {
+    boardId: number;
+    title: string;
+    content: string;
+    userId: number;
+    createdDate: string(with timestamps)
+  }
+*/
 ```
