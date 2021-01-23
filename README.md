@@ -109,3 +109,18 @@ npm run production
 
 yarn run production
 ```
+
+## APIs
+1. users
+#### /api/v1/users/sign-up
+method: POST<br/>
+request.body = {
+  email,
+  password,
+  passwordCheck,
+  name
+}<br/>
+response.status = 200<br/>
+response.data = {
+  message: 'Success'
+}<br/>
