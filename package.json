@@ -2,13 +2,13 @@
   "name": "structure-server",
   "version": "0.0.0",
   "description": "Class 기반의 Node 서버입니다.",
-  "main": "build/app.js",
+  "main": "build/www.js",
   "scripts": {
     "compile-ts": "tsc",
     "clear": "rm -r build",
     "local": "cross-env NODE_ENV=local nodemon --exec ts-node -r tsconfig-paths/register src/www.ts",
-    "development": "npm run compile-ts && cross-env NODE_ENV=development node build/www.js",
-    "production": "npm run compile-ts && cross-env NODE_ENV=production babel-node build/www.js"
+    "development": "npm run compile-ts && cross-env NODE_ENV=development node -r ./tsconfig-paths-bootstrap.js build/www.js",
+    "production": "npm run compile-ts && cross-env NODE_ENV=production node -r ./tsconfig-paths-bootstrap.js build/www.js"
   },
   "repository": {
     "type": "git",
