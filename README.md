@@ -10,9 +10,11 @@
 Node.js의 프레임워크 중 Koa.js를 사용했으며, Typescript를 적용해 Class기반으로 제작된 서버입니다.
 
 ## Versions
+
 version 0.0.3<br/>
 1. middleware 적용
 2. 로그아웃 기능을 위한 Redis 적용
+3. mybatis-mapper 적용 (다중 조인 쿼리 작업시 사용)
 
 version 0.0.2<br/>
 1. JWT library 개발
