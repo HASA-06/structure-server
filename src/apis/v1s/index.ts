@@ -1,7 +1,5 @@
 import KoaRouter from 'koa-router';
 
-import { Middleware } from 'koa';
-
 import User from './users';
 import Board from './boards';
 import Token from './tokens';
