@@ -52,6 +52,7 @@ production<br/>
 
 Sequelize<br/>
 mybatis-mapper<br/>
+Redis
 
 ## Managing branchs
 ### Local
