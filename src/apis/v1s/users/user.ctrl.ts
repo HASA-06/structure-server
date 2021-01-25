@@ -1,16 +1,17 @@
 import { Context } from "koa";
 
-import database from 'libs/database';
+import sequelize from 'libs/sequelize';
 import { Token, Payload } from 'libs/token';
-import MemoryDatabase from 'libs/memoryDatabase';
+import { saveSignOutToken } from 'libs/redis';
+import Mybatis from 'libs/mybatis';
 
 import Validate from 'utils/validate';
 import { Password, EncryptedResult } from 'utils/password';
 
 
-const databaseLib = database;
-const memoryDatabaseLib = new MemoryDatabase();
+const sequelizeLib = sequelize;
 const tokenLib = new Token();
+const mybatisLib = new Mybatis();
 
 const validateUtil = new Validate();
 const passwordUtil = new Password();
@@ -67,7 +68,7 @@ class UserCtrl {
     try {
       const encryptedResult: EncryptedResult = await passwordUtil.encryption(password);
 
-      const [ data, status ] = await databaseLib.model('user').findOrCreate({
+      const [ data, status ] = await sequelizeLib.model('user').findOrCreate({
         where: {
           email: email
         },
@@ -122,7 +123,7 @@ class UserCtrl {
     }
 
     try {
-      const data: any = await databaseLib.model('user').findOne({
+      const data: any = await sequelizeLib.model('user').findOne({
         where: {
           email: email
         }
@@ -186,7 +187,7 @@ class UserCtrl {
     try {
       const decodedAccessToken: any = await tokenLib.decodeToken(accessToken);
 
-      await memoryDatabaseLib.saveSignOutToken(decodedAccessToken.userId, accessToken);
+      await saveSignOutToken(decodedAccessToken.userId, accessToken);
       
       ctx.status = 200;
       ctx.body = {

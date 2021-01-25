@@ -1,12 +1,14 @@
 import { Context } from "koa";
 
-import database from 'libs/database';
-import { Token, Payload, Option } from 'libs/token';
+import sequelize from 'libs/sequelize';
+import { Token } from 'libs/token';
+import Mybatis from 'libs/mybatis';
 
 import Validate from 'utils/validate';
 
-const databaseLib = database;
+const sequelizeLib = sequelize;
 const tokenLib = new Token();
+const mybatisLib = new Mybatis();
 
 const validateUtil = new Validate();
 
@@ -32,7 +34,7 @@ class BoardCtrl {
     try {
       const decodedAccessToken: any = await tokenLib.decodeToken(accessToken);
     
-      await databaseLib.model('board').create({
+      await sequelizeLib.model('board').create({
         title: title,
         content: content,
         userId: decodedAccessToken.userId
@@ -61,7 +63,7 @@ class BoardCtrl {
     } = ctx.params;
 
     try {
-      const data = await databaseLib.model('board').findByPk(parseInt(boardId));
+      const data = await sequelizeLib.model('board').findByPk(parseInt(boardId));
 
       if(!data) {
         ctx.status = 400;
@@ -116,7 +118,7 @@ class BoardCtrl {
     try {
       const decodedAccessToken: any = await tokenLib.decodeToken(accessToken);
 
-      const data: any = await databaseLib.model('board').findByPk(boardId);
+      const data: any = await sequelizeLib.model('board').findByPk(boardId);
 
       if(!data) {
         ctx.status = 400;
@@ -138,7 +140,7 @@ class BoardCtrl {
         return;
       }
 
-      await databaseLib.model('board').update(
+      await sequelizeLib.model('board').update(
         {
           title : !validateUtil.check('text', title) ? title : data.dataValues.title,
           content: !validateUtil.check('text', content) ? content: data.dataValues.cotent
@@ -177,7 +179,7 @@ class BoardCtrl {
     try {
       const decodedAccessToken: any = await tokenLib.decodeToken(accessToken);
 
-      const data: any = await databaseLib.model('board').findByPk(boardId);
+      const data: any = await sequelizeLib.model('board').findByPk(boardId);
 
       if(!data) {
         ctx.status = 400;
@@ -199,7 +201,7 @@ class BoardCtrl {
         return;
       }
 
-      await databaseLib.model('board').destroy({
+      await sequelizeLib.model('board').destroy({
         where: {
           board_id: boardId
         }
@@ -228,8 +230,12 @@ class BoardCtrl {
     try {
       await tokenLib.decodeToken(accessToken);
 
-      const data = await databaseLib.model('board').findAll();
+      const getListQuery: string = mybatisLib.getStatement('board', 'getList');
 
+      const data = await sequelizeLib.query(getListQuery, {
+        nest: true
+      });
+      
       ctx.status = 200;
       ctx.body = {
         message: 'Success',

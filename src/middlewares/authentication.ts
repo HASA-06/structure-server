@@ -1,10 +1,9 @@
 import { Context, Next } from 'koa';
 
 import { Token, Payload, Option } from 'libs/token';
-import MemoryDatabase from 'libs/memoryDatabase';
+import { checkSignOutToken } from 'libs/redis';
 
 const tokenLib = new Token();
-const memoryDatabaseLib = new MemoryDatabase();
 
 class Authentication {
   public check = async (ctx: Context, next: Next) => {
@@ -26,8 +25,8 @@ class Authentication {
 
     try {
       const decodedAccessToken: any = await tokenLib.decodeToken(accessToken);
-
-      if(await memoryDatabaseLib.checkSignOutToken(decodedAccessToken.userId, accessToken)) {
+      
+      if(await checkSignOutToken(decodedAccessToken.userId)) {
         ctx.status = 400;
         ctx.body = {
           message: 'Fail',

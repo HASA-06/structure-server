@@ -5,28 +5,50 @@ ConsoleStamp(console, {
 });
 
 import App from './app';
-import database from 'libs/database';
+import sequelize from 'libs/sequelize';
 import ObjectRelationMapping from 'models/index';
+import Mybatis from 'libs/mybatis';
+import { redis } from 'libs/redis';
+
+import asyncLogger from 'utils/asyncLogger';
 
 try {
   (async () => {
     const app = new App();
 
-    const orm = new ObjectRelationMapping(database);
+    const orm = new ObjectRelationMapping(sequelize);
 
-    console.log('::: STRUCTURE SERVER DATABASE :::\n');
-    console.log('- Model list\n')
-    await orm.setSubModels();
-    console.log('=> Models are injected\n');
+    console.info('::: MISTER MEAT DATABASE :::\n');
+    await asyncLogger(
+      'Sequelize Model list',
+      'sub models are injected',
+      [orm.setSubModels()]
+    );
 
-    console.log('- Connection test\n');
-    await database.sync();
-    console.log('=> Database has connected\n');
+    await asyncLogger(
+      'Connection test',
+      'Database has connected',
+      [sequelize.sync({
+        logging: false
+      })]
+    );
 
-    app.startServer();
+    await asyncLogger(
+      'Mybatis-mapper xml file list',
+      'Mappers are injected',
+      [new Mybatis().setMapperFiles()]
+    );
+
+    await asyncLogger(
+      'Redis set',
+      'Redis will be injected',
+      [redis]
+    );
+
+    await app.startServer();
   })();
 } catch (error) {
-  console.log(`::: STRUCTURE SERVER :::\n`);
-  console.log('Server run has failed\n');
+  console.info(`::: MISTER MEAT SERVER :::\n`);
+  console.info('Server run has failed\n');
   console.log(`=>Error :: ${ error }`)
 }

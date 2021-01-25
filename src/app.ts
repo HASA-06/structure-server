@@ -63,15 +63,15 @@ class App {
     this.app.use(this.router.allowedMethods());
   }
 
-  public startServer(): void {
+  public startServer = async () => {
     this.app.listen(3000, () => {
-      console.log(`::: STRUCTURE SERVER:::\n`);
-      console.log('- Server is running\n');
-      console.log(`Host ${ this.HOST_ADDRESS }`);
-      console.log(`Port ${ this.PORT_NUMBER }`);
-      console.log(`Mode ${ process.env.NODE_ENV }\n`);
+      console.info(`::: MISTER MEAT SERVER:::\n`);
+      console.info('- Server is running\n');
+      console.info(`Host ${ this.HOST_ADDRESS }`);
+      console.info(`Port ${ this.PORT_NUMBER }`);
+      console.info(`Mode ${ process.env.NODE_ENV }\n`);
       console.log(`=> You can connecting with below urls\n`);
-      console.log(`\nhttp://${ this.HOST_ADDRESS }:${ this.PORT_NUMBER }\nhttp://localhost:${ this.PORT_NUMBER }`);
+      console.info(`\nhttp://${ this.HOST_ADDRESS }:${ this.PORT_NUMBER }\nhttp://localhost:${ this.PORT_NUMBER }`);
     });
   }
 }
