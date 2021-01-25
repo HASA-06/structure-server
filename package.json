@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HanPark-Smile/mister-meat-admin-back.git"
+    "url": "git+https://github.com/structure-server.git"
   },
   "keywords": [
     "JS(ES6)",
@@ -29,9 +29,9 @@
   "author": "SANHA LEE",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HanPark-Smile/mister-meat-admin-back/issues"
+    "url": "https://github.com/structure-server/issues"
   },
-  "homepage": "https://github.com/HanPark-Smile/mister-meat-admin-back#readme",
+  "homepage": "https://github.com/structure-server#readme",
   "dependencies": {
     "@types/console-stamp": "^0.2.33",
     "async-redis": "^1.1.7",
